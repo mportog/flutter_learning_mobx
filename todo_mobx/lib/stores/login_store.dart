@@ -5,12 +5,6 @@ part 'login_store.g.dart';
 class LoginStore = _LoginStoreBase with _$LoginStore;
 
 abstract class _LoginStoreBase with Store {
-  // _LoginStoreBase() {
-  //   autorun((_) {
-  //     print('isFormValid: $isFormValid');
-  //   });
-  // }
-
   @observable
   bool obscure = true;
 
@@ -43,6 +37,13 @@ abstract class _LoginStoreBase with Store {
 
     loading = false;
     loggedIn = true;
+    email = '';
+    password = '';
+  }
+
+  @action
+  void logout() {
+    loggedIn = false;
   }
 
   @computed
